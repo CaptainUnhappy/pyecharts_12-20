@@ -18,10 +18,11 @@ pip install pyecharts
 
 ## 示例
 
-本项目提供了一个简单的示例代码 `main.py`，用于展示基本的 Pyecharts 图表生成和组合方式
+本项目提供了一个简单的示例代码 `example.py`，用于展示基本的 Pyecharts 图表生成和组合方式
 
 ## 参考文档和链接
 
 - [Pyecharts 官方文档](https://05x-docs.pyecharts.org/#/)
 - [可视化大屏实例参考](https://www.sohu.com/a/705294338_178408)
 - [Pyecharts 可视化大屏实现参考 - CSDN](https://blog.csdn.net/yang3366/article/details/131110369)
+- [根据echarts生成pyecharts并修改，复刻echarts图案到pyecharts - CSDN](https://blog.csdn.net/qq_16381291/article/details/121680477)

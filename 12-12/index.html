@@ -32,7 +32,7 @@
       </div>
     </div>
     <script>
-      var mychart = echarts.init(document.getElementById("first"));
+      var b_right1 = echarts.init(document.getElementById("first"));
       /** @type EChartsOption */
       var option = {
         title: {
@@ -88,9 +88,9 @@
           width: "20%",
         },
       };
-      mychart.setOption(option);
+      b_right1.setOption(option);
 
-      var mychart = echarts.init(document.getElementById("second"));
+      var b_right2 = echarts.init(document.getElementById("second"));
       /** @type EChartsOption */
       var option = {
         title: {
@@ -189,9 +189,9 @@
           },
         },
       };
-      mychart.setOption(option);
+      b_right2.setOption(option);
 
-      var mychart = echarts.init(document.getElementById("third"));
+      var b_right3 = echarts.init(document.getElementById("third"));
       /** @type EChartsOption */
       var option = {
         title: [
@@ -310,13 +310,13 @@
           },
         ],
       };
-      mychart.setOption(option);
+      b_right3.setOption(option);
 
       $.getJSON(
         "https://geo.datav.aliyun.com/areas_v3/bound/321200_full.json",
         function (r) {
           echarts.registerMap("sh", r);
-          var mychart = echarts.init(document.getElementById("sixth"));
+          var b_left1 = echarts.init(document.getElementById("sixth"));
           var geoData1 = [
             {
               label: "兴化市",
@@ -702,11 +702,11 @@
               orient: "vertical",
             },
           };
-          mychart.setOption(option);
+          b_left1.setOption(option);
         }
       );
 
-      var mychart = echarts.init(document.getElementById("fourth"));
+      var b_left3 = echarts.init(document.getElementById("fourth"));
       /** @type EChartsOption */
       var option = {
         title: {
@@ -780,9 +780,9 @@
           },
         ],
       };
-      mychart.setOption(option);
+      b_left3.setOption(option);
 
-      var mychart = echarts.init(document.getElementById("fifth"));
+      var b_left2 = echarts.init(document.getElementById("fifth"));
       /** @type EChartsOption */
       var option = {
         title: {
@@ -826,7 +826,7 @@
           },
         ],
       };
-      mychart.setOption(option);
+      b_left2.setOption(option);
     </script>
   </body>
 </html>
