@@ -311,12 +311,13 @@
         ],
       };
       b_right3.setOption(option);
-
+      
+      var b_left1 = echarts.init(document.getElementById("sixth"));
       $.getJSON(
         "https://geo.datav.aliyun.com/areas_v3/bound/321200_full.json",
         function (r) {
           echarts.registerMap("sh", r);
-          var b_left1 = echarts.init(document.getElementById("sixth"));
+          // var b_left1 = echarts.init(document.getElementById("sixth"));
           var geoData1 = [
             {
               label: "兴化市",
