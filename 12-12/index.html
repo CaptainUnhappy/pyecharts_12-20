@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>可视化大屏</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="js/echarts.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="head">
+        <div class="h_left">2023年12月12日</div>
+        <div class="h_middle">江城化工厂封闭管理后台</div>
+        <div class="h_right">
+          10°&nbsp;&nbsp;东南风&nbsp;&nbsp;空气良&nbsp;&nbsp;江城
+        </div>
+      </div>
+      <div class="body">
+        <div class="b_left">
+          <div class="b_left1" id="sixth"></div>
+          <div class="b_left2" id="fifth"></div>
+          <div class="b_left3" id="fourth"></div>
+        </div>
+        <div class="b_right">
+          <div class="b_right1" id="first"></div>
+          <div class="b_right2" id="second"></div>
+          <div class="b_right3" id="third"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var mychart = echarts.init(document.getElementById("first"));
+      /** @type EChartsOption */
+      var option = {
+        title: {
+          text: "重点用能单位的能耗分析（单位：吨 标准煤）",
+          textStyle: {
+            fontSize: 20,
+            color: "#fff",
+          },
+          left: 27,
+          top: 10,
+        },
+        series: [
+          {
+            name: "用能",
+            type: "pie",
+            data: [
+              {
+                value: 9.26,
+                name: "煤炭",
+              },
+              {
+                value: 18.52,
+                name: "电",
+              },
+              {
+                value: 25.93,
+                name: "蒸汽",
+              },
+              {
+                value: 46.3,
+                name: "天然气",
+              },
+            ],
+            startAngle: 125,
+            radius: ["20%", "70%"],
+            height: "80%",
+            center: [445, 176],
+            label: {
+              fontSize: 16,
+              color: "#fff",
+              formatter: "{b}{c}%",
+            },
+            roseType: "radius",
+          },
+        ],
+        legend: {
+          data: ["煤炭", "电", "蒸汽", "天然气"],
+          left: 45,
+          top: 90,
+          textStyle: {
+            color: "white",
+          },
+          width: "20%",
+        },
+      };
+      mychart.setOption(option);
+
+      var mychart = echarts.init(document.getElementById("second"));
+      /** @type EChartsOption */
+      var option = {
+        title: {
+          text: "规上工业增量存量能耗对比",
+          textStyle: {
+            fontSize: 20,
+            color: "#fff",
+          },
+          left: 27,
+          top: 10,
+        },
+        xAxis: {
+          type: "category",
+          data: ["电", "煤炭", "天然气", "蒸汽"],
+          show: true,
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: "#fff",
+            },
+          },
+        },
+        yAxis: [
+          {
+            type: "value",
+            name: "综合能耗（单位：吨 标准）",
+            nameTextStyle: {
+              fontSize: 16,
+            },
+            axisLine: {
+              symbol: "none",
+              show: true,
+              lineStyle: {
+                color: "#fff",
+              },
+            },
+            min: 0,
+            max: 1000,
+            interval: 250,
+          },
+          {
+            type: "value",
+            axisLine: {
+              symbol: "none",
+              show: true,
+              lineStyle: {
+                color: "#fff",
+              },
+            },
+          },
+        ],
+        series: [
+          {
+            name: "存能",
+            data: [312, 614, 880, 300],
+            type: "bar",
+            barWidth: 13,
+            itemStyle: {
+              color: "blue",
+            },
+            label: {
+              color: "#fff",
+              show: true,
+              align: "center",
+              position: "top",
+            },
+          },
+          {
+            name: "增能",
+            data: [356, 550, 200, 400],
+            type: "bar",
+            barWidth: 13,
+            itemStyle: {
+              color: "skyblue",
+            },
+            label: {
+              color: "#fff",
+              show: true,
+              align: "center",
+              position: "top",
+            },
+          },
+        ],
+        grid: {
+          top: 90,
+          bottom: 40,
+          left: 125,
+          right: 45,
+        },
+        legend: {
+          data: ["存能", "增能"],
+          right: 40,
+          top: 30,
+          textStyle: {
+            color: "#fff",
+          },
+        },
+      };
+      mychart.setOption(option);
+
+      var mychart = echarts.init(document.getElementById("third"));
+      /** @type EChartsOption */
+      var option = {
+        title: [
+          {
+            text: "行业能耗结构分析（单位：标准煤）",
+            textStyle: {
+              fontSize: 20,
+              color: "#fff",
+            },
+            left: 27,
+            top: 10,
+          },
+          {
+            text: "能耗结构分析",
+            textStyle: {
+              fontSize: 20,
+              color: "#fff",
+            },
+            left: 520,
+            top: 10,
+          },
+        ],
+        series: [
+          {
+            name: "Access From",
+            type: "pie",
+            radius: "50%",
+            data: [
+              {
+                value: 21.43,
+                name: "蒸汽",
+              },
+              {
+                value: 21.43,
+                name: "电",
+              },
+              {
+                value: 14.29,
+                name: "天然气",
+              },
+              {
+                value: 42.86,
+                name: "煤炭",
+              },
+            ],
+            left: -200,
+            startAngle: 90,
+            radius: ["20%", "85%"],
+            height: "80%",
+            center: [445, 176],
+            label: {
+              fontSize: 14,
+              color: "#fff",
+              formatter: "{b}\n{c}%",
+              position: "inside",
+            },
+            roseType: "radius",
+          },
+          {
+            name: "Access From",
+            type: "pie",
+            radius: "50%",
+            data: [
+              {
+                value: 7.04,
+                name: "限上批零业",
+              },
+              {
+                value: 42.25,
+                name: "规上服务业",
+              },
+              {
+                value: 21.13,
+                name: "非化工企业",
+              },
+              {
+                value: 29.58,
+                name: "化工企业",
+              },
+            ],
+            left: 150,
+            startAngle: 90,
+            radius: ["20%", "85%"],
+            height: "80%",
+            center: [445, 176],
+            label: {
+              show: true,
+              fontSize: 14,
+              color: "#fff",
+              formatter: "{b}\n{c}%",
+              position: "inside",
+            },
+            roseType: "radius",
+          },
+        ],
+        legend: [
+          {
+            data: ["蒸汽", "电", "天然气", "煤炭"],
+            orient: "horizontal",
+            top: "bottom",
+            bottom: "auto",
+            textStyle: {
+              color: "#fff",
+            },
+            left: 120,
+          },
+          {
+            data: ["非化工企业", "化工企业"],
+            orient: "horizontal",
+            top: "bottom",
+            bottom: "auto",
+            textStyle: {
+              color: "#fff",
+            },
+            right: 50,
+          },
+        ],
+      };
+      mychart.setOption(option);
+
+      $.getJSON(
+        "https://geo.datav.aliyun.com/areas_v3/bound/321200_full.json",
+        function (r) {
+          echarts.registerMap("sh", r);
+          var mychart = echarts.init(document.getElementById("sixth"));
+          var geoData1 = [
+            {
+              label: "兴化市",
+              value: [[119.930721, 32.826721]],
+            },
+            {
+              label: "泰兴市",
+              value: [
+                [120.07215, 32.216865],
+                [120.166436, 32.143519],
+              ],
+            },
+            {
+              label: "靖江市",
+              value: [[120.135391, 31.997629]],
+            },
+          ];
+          var geo_d = geoData1.map((r) => r.value);
+          var geoD1 = [].concat.apply([], geo_d); //数组降维
+          var geoData2 = [
+            {
+              label: "兴化市",
+              value: [
+                [119.750772, 33.07346],
+                [120.021557, 33.02843],
+              ],
+            },
+            {
+              label: "海陵区",
+              value: [[119.927846, 32.475541]],
+            },
+            {
+              label: "姜堰区",
+              value: [[120.146889, 32.484313]],
+            },
+            {
+              label: "泰兴市",
+              value: [
+                [119.996836, 32.142052],
+                [120.185408, 32.25547],
+              ],
+            },
+            {
+              label: "靖江市",
+              value: [[120.340636, 32.04906]],
+            },
+          ];
+          var geo_d2 = geoData2.map((r) => r.value);
+          var geoD2 = [].concat.apply([], geo_d2);
+          /** @type EChartsOption */
+          var option = {
+            title: [
+              {
+                text: "泰兴位置总览",
+                textStyle: {
+                  fontSize: 20,
+                  color: "#fff",
+                },
+                left: 27,
+                top: 9,
+              },
+              {
+                text: "入园申报统计",
+                textStyle: {
+                  fontSize: 20,
+                  color: "#fff",
+                  fontWeight: 100,
+                },
+                left: 103,
+                top: 359,
+              },
+              {
+                text: "今日进出园区车辆",
+                textStyle: {
+                  fontSize: 20,
+                  color: "#fff",
+                  fontWeight: 100,
+                },
+                left: 605,
+                top: 34,
+              },
+              {
+                //富文本标签
+                text: "{a|1}{a|2}{a|3}{a|1}",
+                left: 605,
+                top: 60,
+                textStyle: {
+                  color: "#fff",
+                  rich: {
+                    a: {
+                      padding: 12,
+                      align: "center",
+                      backgroundColor: "#131f52",
+                      fontWeight: 600,
+                      fontSize: 30,
+                    },
+                  },
+                },
+              },
+              {
+                text: "危机预警次数",
+                textStyle: {
+                  fontSize: 20,
+                  color: "#fff",
+                  fontWeight: 100,
+                },
+                left: 852,
+                top: 34,
+              },
+              {
+                //富文本标签
+                text: "{a|2}{a|2}{a|3}{a|1}",
+                left: 832,
+                top: 60,
+                textStyle: {
+                  color: "#fff",
+                  rich: {
+                    a: {
+                      padding: 12,
+                      align: "center",
+                      backgroundColor: "#131f52",
+                      fontWeight: 600,
+                      fontSize: 30,
+                    },
+                  },
+                },
+              },
+              {
+                text: "今日危废品处理数据",
+                textStyle: {
+                  fontSize: 15,
+                  color: "#fff",
+                  fontWeight: 100,
+                },
+                left: 610,
+                top: 160,
+              },
+              {
+                text: "今日化工原料生产情况",
+                textStyle: {
+                  fontSize: 15,
+                  color: "#fff",
+                  fontWeight: 100,
+                },
+                left: 823,
+                top: 160,
+              },
+              {
+                text: "化工园区企业车辆统计",
+                textStyle: {
+                  fontSize: 15,
+                  color: "#fff",
+                  fontWeight: 100,
+                },
+                left: 831,
+                top: 380,
+              },
+              {
+                text: "单位/吨",
+                textStyle: {
+                  fontSize: 15,
+                  color: "#fff",
+                  fontWeight: 100,
+                },
+                left: 738,
+                top: 338,
+              },
+              {
+                text: "单位/吨",
+                textStyle: {
+                  fontSize: 15,
+                  color: "#fff",
+                  fontWeight: 100,
+                },
+                left: 969,
+                top: 338,
+              },
+            ],
+            radar: {
+              indicator: [
+                {
+                  name: "临时访客",
+                  max: 6500,
+                },
+                {
+                  name: "危废车辆",
+                  max: 16000,
+                },
+                {
+                  name: "职工车辆",
+                  max: 30000,
+                },
+                {
+                  name: "危化品车辆",
+                  max: 38000,
+                },
+                {
+                  name: "普通车辆",
+                  max: 52000,
+                },
+              ],
+              radius: 103,
+              center: [167, 518],
+              splitArea: {
+                areaStyle: {
+                  color: ["rgba(13,120,214,1)", "rgba(17,24,94,1)"],
+                },
+              },
+            },
+            geo: {
+              show: true,
+              map: "sh",
+              label: {
+                show: true,
+                color: "#fff",
+              },
+              itemStyle: {
+                areaColor: "#09146e",
+                borderColor: "#fff",
+                borderWidth: 2,
+              },
+              left: 275,
+              right: 388,
+              top: 28,
+              bottom: 14,
+            },
+            grid: { right: "7%", bottom: "7%", width: "25%", height: "25%" },
+            xAxis: {
+              type: "category",
+              data: ["1", "2", "3", "4"],
+              axisTick: {
+                show: true,
+              },
+              axisLabel: {
+                show: true,
+                color: "#fff",
+              },
+              axisLine: {
+                show: true,
+                lineStyle: {
+                  color: "#fff",
+                },
+              },
+            },
+            yAxis: {
+              type: "value",
+              nameTextStyle: {
+                color: "#fff",
+              },
+              axisLine: {
+                symbol: "none",
+                show: true,
+                lineStyle: {
+                  color: "#fff",
+                },
+              },
+              min: 0,
+              max: 100,
+              splitNumber: 4,
+              interval: 25,
+            },
+            series: [
+              {
+                name: "入园申报统计",
+                type: "radar",
+                data: [
+                  {
+                    value: [4000, 10000, 20000, 30000, 20000, 20000],
+                    name: "统计值",
+                    areaStyle: {
+                      color: "pink",
+                    },
+                    itemStyle: {
+                      color: "#fff",
+                    },
+                  },
+                ],
+              },
+              {
+                name: "轻度化工位置",
+                type: "effectScatter",
+                coordinateSystem: "geo",
+                data: geoD1,
+                itemStyle: {
+                  color: "yellow",
+                },
+              },
+              {
+                name: "重度化工位置",
+                type: "effectScatter",
+                coordinateSystem: "geo",
+                data: geoD2,
+                itemStyle: {
+                  color: "red",
+                },
+              },
+              {
+                name: "pie1",
+                type: "pie",
+                radius: "40%",
+                left: 600,
+                top: 160,
+                center: [80, 120],
+                data: [
+                  {
+                    value: 100,
+                    name: "1",
+                  },
+                  {
+                    value: 90,
+                    name: "丙酸",
+                  },
+                  {
+                    value: 80,
+                    name: "硝酸铵",
+                  },
+
+                  {
+                    value: 120,
+                    name: "水硫酸锰",
+                  },
+                ],
+                label: {
+                  show: true,
+                  fontSize: 14,
+                  color: "#fff",
+                  formatter: "{b}\n{c}",
+                  position: "inside",
+                },
+              },
+              {
+                name: "pie2",
+                type: "pie",
+                radius: "80%",
+                left: 823,
+                top: 160,
+                center: [80, 120],
+                data: [
+                  {
+                    value: 90,
+                    name: "1",
+                  },
+                  {
+                    value: 140,
+                    name: "辛酸",
+                  },
+                  {
+                    value: 90,
+                    name: "3",
+                  },
+                  {
+                    value: 170,
+                    name: "溶脂",
+                  },
+                ],
+                label: {
+                  show: true,
+                  fontSize: 14,
+                  color: "#fff",
+                  formatter: "{b}\n{c}",
+                  position: "inside",
+                },
+              },
+              {
+                type: "bar",
+                data: [40, 75, 88, 40],
+                barWidth: 13,
+                colorBy: "data",
+                label: {
+                  show: true,
+                  position: "top",
+                  color: "#fff",
+                },
+              },
+            ],
+            legend: {
+              data: ["轻度化工位置", "重度化工位置"],
+              left: 20,
+              top: 135,
+              textStyle: {
+                color: "#fff",
+              },
+              orient: "vertical",
+            },
+          };
+          mychart.setOption(option);
+        }
+      );
+
+      var mychart = echarts.init(document.getElementById("fourth"));
+      /** @type EChartsOption */
+      var option = {
+        title: {
+          text: "园区本月能耗",
+          textStyle: {
+            fontSize: 20,
+            color: "#fff",
+          },
+          left: 27,
+          top: 9,
+        },
+        xAxis: [
+          {
+            type: "category",
+            axisTick: {
+              show: false,
+            },
+            axisLabel: {
+              show: false,
+            },
+          },
+          {
+            type: "category",
+            data: ["当月用电量", "当日天然气量", "当日蒸汽量", "当日原煤量"],
+            textStyle: {
+              color: "#fff",
+            },
+            axisTick: {
+              show: true,
+              inside: "outside",
+              length: 173,
+              color: "#fff",
+            },
+            axisLabel: {
+              show: true,
+              color: "#fff",
+              margin: -200,
+            },
+          },
+        ],
+        yAxis: {
+          type: "value",
+          nameTextStyle: {
+            color: "#fff",
+          },
+          axisLine: {
+            symbol: "none",
+            show: true,
+            lineStyle: {
+              color: "#fff",
+            },
+          },
+          min: 0,
+          max: 100,
+          splitNumber: 4,
+          interval: 25,
+        },
+        series: [
+          {
+            data: [
+              50, 21, 32, 42, 31, 26, 28, 37, 45, 12, 36, 36, 39, 42, 50, 32,
+            ],
+            type: "line",
+            // coordinateSystem: 'cartesian2d',
+            symbol: "emptyCircle",
+            symbolSize: 10,
+            stack: true,
+            areaStyle: {
+              color: "rgba(13,120,214,0.8)",
+            },
+          },
+        ],
+      };
+      mychart.setOption(option);
+
+      var mychart = echarts.init(document.getElementById("fifth"));
+      /** @type EChartsOption */
+      var option = {
+        title: {
+          text: "园区当日能耗",
+          textStyle: {
+            fontSize: 20,
+            color: "#fff",
+          },
+          left: 27,
+          top: 9,
+        },
+        grid: {
+          left: "18%",
+          width: "75%",
+        },
+        yAxis: {
+          type: "category",
+          data: ["当日原煤量", "当日蒸汽量", "当日天然气量", "当月用电量"],
+          axisLabel: {
+            show: true,
+            color: "#fff",
+          },
+        },
+        xAxis: {
+          type: "value",
+          interval: 25,
+          axisLine: {
+            symbol: "none",
+            show: true,
+            lineStyle: {
+              color: "#fff",
+            },
+          },
+        },
+        series: [
+          {
+            data: [90, 74, 50, 40],
+            type: "bar",
+            colorBy: "data",
+            barWidth: 20,
+          },
+        ],
+      };
+      mychart.setOption(option);
+    </script>
+  </body>
+</html>
